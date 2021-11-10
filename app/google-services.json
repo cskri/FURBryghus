@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "588789853857",
+    "project_id": "fur-bryghus",
+    "storage_bucket": "fur-bryghus.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:588789853857:android:05f119c85cd339c4e34ae0",
+        "android_client_info": {
+          "package_name": "com.example.furbryghus"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "588789853857-ebj33gnd3s10lpd17c8cmjhc36l207c0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.furbryghus",
+            "certificate_hash": "f0c161dfa28b5e37ce3247304a58cbdac3f53a12"
+          }
+        },
+        {
+          "client_id": "588789853857-um7fppubr72kj80rs9qjrm2odkc72b31.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWitn-2xkbItZx9ri2EL4k3QQBlLbrFd0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "588789853857-um7fppubr72kj80rs9qjrm2odkc72b31.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
