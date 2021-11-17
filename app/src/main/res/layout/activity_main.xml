@@ -44,10 +44,12 @@
         android:layout_width="91dp"
         android:layout_height="87dp"
         android:layout_marginStart="32dp"
+        android:contentDescription="@string/fur_bryghus"
         app:layout_constraintBottom_toTopOf="@+id/nav_host_fragment_activity_main"
         app:layout_constraintStart_toStartOf="@+id/toolbar"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo_d4d63234" />
+        app:srcCompat="@drawable/logo_d4d63234"
+        tools:ignore="ImageContrastCheck" />
 
     <Button
         android:id="@+id/profileButton"
