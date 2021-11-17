@@ -5,9 +5,11 @@
       <map>
         <entry key="..\:/Users/caspe/AndroidStudioProjects/FURBryghus/app/src/main/res/drawable/ic_baseline_person_outline_24.xml" value="0.5661458333333333" />
         <entry key="..\:/Users/caspe/AndroidStudioProjects/FURBryghus/app/src/main/res/layout/activity_main.xml" value="0.5" />
-        <entry key="..\:/Users/caspe/AndroidStudioProjects/FURBryghus/app/src/main/res/layout/fragment_beers.xml" value="0.55" />
+        <entry key="..\:/Users/caspe/AndroidStudioProjects/FURBryghus/app/src/main/res/layout/fragment_beers.xml" value="0.5" />
+        <entry key="..\:/Users/caspe/AndroidStudioProjects/FURBryghus/app/src/main/res/layout/fragment_beers2.xml" value="0.55" />
         <entry key="..\:/Users/caspe/AndroidStudioProjects/FURBryghus/app/src/main/res/layout/fragment_events.xml" value="0.55" />
         <entry key="..\:/Users/caspe/AndroidStudioProjects/FURBryghus/app/src/main/res/layout/fragment_home.xml" value="0.55" />
+        <entry key="..\:/Users/caspe/AndroidStudioProjects/FURBryghus/app/src/main/res/layout/slider_item.xml" value="0.541025641025641" />
         <entry key="..\:/Users/caspe/AndroidStudioProjects/FURBryghus/app/src/main/res/menu/bottom_nav_menu.xml" value="0.55" />
       </map>
     </option>
