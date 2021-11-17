@@ -4,4 +4,6 @@
     <string name="title_beers">Beers</string>
     <string name="title_events">Events</string>
     <string name="fur_bryghus">FUR Bryghus</string>
+    <string name="scan">Scan</string>
+    <string name="search_for_a_beer">Search For A Beer</string>
 </resources>
