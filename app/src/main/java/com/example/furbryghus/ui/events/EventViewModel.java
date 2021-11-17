@@ -1,14 +1,14 @@
-package com.example.furbryghus.ui.notifications;
+package com.example.furbryghus.ui.events;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class NotificationsViewModel extends ViewModel {
+public class EventViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public NotificationsViewModel() {
+    public EventViewModel() {
         mText = new MutableLiveData<>();
         mText.setValue("This is notifications fragment");
     }

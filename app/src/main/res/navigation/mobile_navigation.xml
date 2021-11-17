@@ -12,14 +12,14 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.example.furbryghus.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/navigation_beers"
+        android:name="com.example.furbryghus.ui.beers.BeerFragment"
+        android:label="@string/title_beers"
+        tools:layout="@layout/fragment_beers" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.example.furbryghus.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_events"
+        android:name="com.example.furbryghus.ui.events.EventFragment"
+        android:label="@string/title_events"
+        tools:layout="@layout/fragment_events" />
 </navigation>
