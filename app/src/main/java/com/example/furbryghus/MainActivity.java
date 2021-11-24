@@ -155,7 +155,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void goToProfile(){
-        Intent intent = new Intent(this, profile.class);
+        Intent intent = new Intent(this, ProfilePage.class);
         startActivity(intent);
     }
 
