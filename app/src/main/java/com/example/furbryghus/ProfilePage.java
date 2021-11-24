@@ -18,15 +18,15 @@ public class ProfilePage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile);
-        back = (Button) findViewById(R.id.backButtonProfile);
+        setContentView(R.layout.activity_profile_page);
+        back = (Button) findViewById(R.id.BackButtonProfile);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
-        signout = (Button) findViewById(R.id.signout);
+        signout = (Button) findViewById(R.id.SignOutButton);
         signout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
