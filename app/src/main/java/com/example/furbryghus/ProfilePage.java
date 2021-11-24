@@ -31,8 +31,7 @@ public class ProfilePage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 FirebaseAuth.getInstance().signOut();
-
-                //viewModel.signOut();
+                finish();
             }
         });
     }

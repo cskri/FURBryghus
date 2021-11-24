@@ -10,20 +10,21 @@
         android:id="@+id/BackButtonProfile"
         android:layout_width="60dp"
         android:layout_height="55dp"
-        android:layout_marginStart="45dp"
+        android:layout_marginStart="40dp"
         android:layout_marginTop="40dp"
         app:icon="@drawable/back_button_white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <Button
         android:id="@+id/SignOutButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:layout_marginEnd="45dp"
+        android:layout_marginEnd="40dp"
         android:text="Sign Out"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
