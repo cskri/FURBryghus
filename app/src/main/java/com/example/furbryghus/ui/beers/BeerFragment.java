@@ -63,7 +63,7 @@ public class BeerFragment extends Fragment {
                 holder.list_name.setText(model.getName());
                 holder.list_type.setText(model.getType());
                 holder.list_proof.setText((int) model.getProof());
-                new DownloadImageTask((ImageView) holder.beer_image)
+                new DownloadImageTask(holder.beer_image)
                         .execute(model.getImageLink());
                 holder.list_button.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v)
