@@ -31,6 +31,7 @@
         app:sliderStartAutoCycle="true" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvNews"
         android:layout_width="409dp"
         android:layout_height="529dp"
         app:layout_constraintEnd_toEndOf="parent"
