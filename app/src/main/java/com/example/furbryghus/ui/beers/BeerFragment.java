@@ -25,6 +25,7 @@ import com.example.furbryghus.databinding.FragmentBeersBinding;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Query;
 
 import java.io.InputStream;
@@ -47,6 +48,8 @@ public class BeerFragment extends Fragment {
 
         db = FirebaseFirestore.getInstance();
         mFirestoreList = root.findViewById(R.id.firestore_list);
+
+        //Query
         Query query = db.collection("beers").orderBy("name");
         //RecyclerOptions
         FirestoreRecyclerOptions<BeerModel> options = new FirestoreRecyclerOptions.Builder<BeerModel>().setQuery(query,BeerModel.class).build();
@@ -62,8 +65,8 @@ public class BeerFragment extends Fragment {
             {
                 holder.list_name.setText(model.getName());
                 holder.list_type.setText(model.getType());
-                holder.list_proof.setText((int) model.getProof());
-                new DownloadImageTask((ImageView) holder.beer_image)
+                holder.list_proof.setText("" + model.getProof() + "%");
+                new DownloadImageTask(holder.beer_image)
                         .execute(model.getImageLink());
                 holder.list_button.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v)
@@ -71,6 +74,10 @@ public class BeerFragment extends Fragment {
 
                     }
                 });
+            }
+            @Override
+            public void onError(FirebaseFirestoreException e) {
+                Log.d("Firestore Error", e.getMessage());
             }
         };
         mFirestoreList.setHasFixedSize(true);
@@ -122,7 +129,16 @@ public class BeerFragment extends Fragment {
             bmImage.setImageBitmap(result);
         }
     }
-
+    @Override
+    public void onStart() {
+        super.onStart();
+        adapter.startListening();
+    }
+    @Override
+    public void onStop() {
+        super.onStop();
+        adapter.stopListening();
+    }
     @Override
     public void onDestroyView() {
         super.onDestroyView();
