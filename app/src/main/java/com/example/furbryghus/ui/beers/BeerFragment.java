@@ -1,5 +1,6 @@
 package com.example.furbryghus.ui.beers;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
@@ -71,7 +72,9 @@ public class BeerFragment extends Fragment {
                 holder.list_button.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v)
                     {
-
+                        Intent i = new Intent(v.getContext(), BeerDetails.class);
+                        i.putExtra("ID",model.getName());
+                        v.getContext().startActivity(i);
                     }
                 });
             }
@@ -105,7 +108,7 @@ public class BeerFragment extends Fragment {
 
         }
     }
-    private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
+    public static class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
         ImageView bmImage;
 
         public DownloadImageTask(ImageView bmImage) {
