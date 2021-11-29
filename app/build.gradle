@@ -43,7 +43,7 @@ dependencies {
     implementation platform('com.google.firebase:firebase-bom:29.0.0')
     implementation 'com.google.firebase:firebase-analytics'
     implementation 'com.firebaseui:firebase-ui-auth:8.0.0'
-    implementation 'com.firebaseui:firebase-ui-firestore:8.0.0'
+    implementation 'com.firebaseui:firebase-ui-firestore:7.1.1'
     implementation 'com.google.firebase:firebase-auth:19.2.0'
     implementation 'com.google.firebase:firebase-firestore:21.4.0'
     implementation 'com.github.smarteist:autoimageslider:1.4.0'
