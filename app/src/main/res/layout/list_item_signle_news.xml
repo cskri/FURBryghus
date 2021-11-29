@@ -24,7 +24,7 @@
     <Button
         android:id="@+id/newsButton"
         android:layout_width="0dp"
-        android:layout_height="200"
+        android:layout_height="200dp"
         android:background="@color/blue_200"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
