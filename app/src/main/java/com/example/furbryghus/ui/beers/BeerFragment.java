@@ -1,5 +1,7 @@
 package com.example.furbryghus.ui.beers;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -12,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -21,6 +24,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.furbryghus.MainActivity;
 import com.example.furbryghus.R;
 import com.example.furbryghus.databinding.FragmentBeersBinding;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -28,6 +32,8 @@ import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Query;
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
 
 import java.io.InputStream;
 
@@ -39,6 +45,7 @@ public class BeerFragment extends Fragment {
     private FirebaseFirestore db;
     private TextView musicLabel;
     FirestoreRecyclerAdapter adapter;
+    Button scanButton;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -46,6 +53,18 @@ public class BeerFragment extends Fragment {
                 new ViewModelProvider(this).get(BeerViewModel.class);
         binding = FragmentBeersBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
+        scanButton = root.findViewById(R.id.scanButton);
+        scanButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                IntentIntegrator intentIntegrator = new IntentIntegrator(getActivity());
+                intentIntegrator.setPrompt("For flash use volume up key");
+                intentIntegrator.setBeepEnabled(true);
+                intentIntegrator.setOrientationLocked(true);
+                intentIntegrator.setCaptureActivity(Capture.class);
+                intentIntegrator.initiateScan();
+            }
+        });
 
         db = FirebaseFirestore.getInstance();
         mFirestoreList = root.findViewById(R.id.firestore_list);
@@ -88,7 +107,34 @@ public class BeerFragment extends Fragment {
         mFirestoreList.setAdapter(adapter);
 
         return root;
+
+
+
     }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        IntentResult intentResult = IntentIntegrator.parseActivityResult(requestCode,resultCode,data);
+        if (intentResult.getContents() != null){
+            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+            builder.setTitle("Result");
+            builder.setMessage(intentResult.getContents());
+            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.dismiss();
+                }
+            });
+            builder.show();
+        }
+        else{
+            Toast.makeText(getContext(), "you did not scan anything",Toast.LENGTH_SHORT).show();
+        }
+    }
+
+
+
 
     private class BeerViewHolder extends RecyclerView.ViewHolder{
 
