@@ -48,7 +48,7 @@
         app:layout_constraintEnd_toStartOf="@+id/list_type"
         app:layout_constraintStart_toStartOf="@+id/list_button"
         app:layout_constraintTop_toTopOf="@+id/list_button"
-        app:srcCompat="@drawable/list_beer_image" />
+        app:srcCompat="@android:drawable/stat_notify_sync" />
 
     <TextView
         android:id="@+id/list_name"
