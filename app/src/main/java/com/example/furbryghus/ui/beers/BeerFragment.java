@@ -27,11 +27,16 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.furbryghus.MainActivity;
 import com.example.furbryghus.R;
 import com.example.furbryghus.databinding.FragmentBeersBinding;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.model.Document;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
@@ -39,6 +44,7 @@ import java.io.InputStream;
 
 public class BeerFragment extends Fragment {
 
+    private static final String TAG = "StartBeerDetailIntent";
     private BeerViewModel beerViewModel;
     private FragmentBeersBinding binding;
     private RecyclerView mFirestoreList;
@@ -60,9 +66,9 @@ public class BeerFragment extends Fragment {
                 IntentIntegrator intentIntegrator = new IntentIntegrator(getActivity());
                 intentIntegrator.setPrompt("For flash use volume up key");
                 intentIntegrator.setBeepEnabled(true);
-                intentIntegrator.setOrientationLocked(true);
+                intentIntegrator.setOrientationLocked(false);
                 intentIntegrator.setCaptureActivity(Capture.class);
-                intentIntegrator.initiateScan();
+                intentIntegrator.forSupportFragment(BeerFragment.this).initiateScan();
             }
         });
 
@@ -117,16 +123,34 @@ public class BeerFragment extends Fragment {
         super.onActivityResult(requestCode, resultCode, data);
         IntentResult intentResult = IntentIntegrator.parseActivityResult(requestCode,resultCode,data);
         if (intentResult.getContents() != null){
-            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-            builder.setTitle("Result");
-            builder.setMessage(intentResult.getContents());
-            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            DocumentReference docRef = db.collection("beers").document(intentResult.getContents());
+            docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                 @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    dialog.dismiss();
+                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                    if (task.isSuccessful()) {
+                        DocumentSnapshot document = task.getResult();
+                        if (document.exists()) {
+                            Intent i = new Intent(getContext(), BeerDetails.class);
+                            i.putExtra("ID",intentResult.getContents());
+                            getContext().startActivity(i);
+                        } else {
+                            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                            builder.setTitle("No Beer Found");
+                            builder.setMessage("The scanned item is not a beer from FUR Bryghus");
+                            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                }
+                            });
+                            builder.show();
+                        }
+                    }
+                    else {
+                        Log.d(TAG, "get failed with ", task.getException());
+                    }
                 }
             });
-            builder.show();
         }
         else{
             Toast.makeText(getContext(), "you did not scan anything",Toast.LENGTH_SHORT).show();
