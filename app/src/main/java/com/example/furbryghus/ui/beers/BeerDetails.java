@@ -25,7 +25,7 @@ public class BeerDetails extends AppCompatActivity {
     TextView mSize;
     TextView mDescription;
     ImageView mImage;
-    Long id;
+    String id;
     String TAG = "BeerDetails";
 
     private FirebaseFirestore db;
@@ -44,7 +44,7 @@ public class BeerDetails extends AppCompatActivity {
         mImage = findViewById(R.id.beerImage);
 
         Intent i = getIntent();
-        id = i.getLongExtra("ID", 0);
+        id = i.getStringExtra("ID");
 
         db = FirebaseFirestore.getInstance();
         DocumentReference docRef = db.collection("beers").document(id.toString());

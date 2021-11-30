@@ -6,14 +6,100 @@
     android:layout_height="match_parent"
     android:background="@color/blue_200">
 
-    <Button
-        android:id="@+id/backButtonNews"
+    <TextView
+        android:id="@+id/newsDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="56dp"
-        android:background="@color/blue_200"
-        android:text="Back"
+        android:layout_marginTop="8dp"
+        android:text="30/11-2021 09:35"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="@color/grey"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/newsTitle2" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarNews"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/grey"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/backButtonNews"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="74dp"
+        android:layout_height="78dp"
+        android:onClick="backButton"
+        app:icon="@drawable/abc_vector_test"
+        app:iconTint="@color/blue_200"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbarNews"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <TextView
+        android:id="@+id/newsTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="This is exciting news!"
+        android:textAllCaps="false"
+        android:textColor="@color/blue_200"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbarNews"
+        app:layout_constraintEnd_toEndOf="@+id/toolbarNews"
+        app:layout_constraintStart_toEndOf="@+id/backButtonNews"
+        app:layout_constraintTop_toTopOf="@+id/toolbarNews" />
+
+    <ImageView
+        android:id="@+id/newsImage"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:background="#6BA1A1A1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarNews"
+        app:srcCompat="@drawable/breaking_news" />
+
+    <TextView
+        android:id="@+id/newsTitle2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="This is exciting news!"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="@color/grey"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/newsImage" />
+
+    <TextView
+        android:id="@+id/newsContent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:lineSpacingExtra="5sp"
+        android:text="sodfnsdnfsdjgnsdlgnsdjgksdjgnsdjkbgjsdkbgsjdkgb sdkjgsdjkgjsdkngf gsjkdgnjsdkfnsdjkg skdjbgsdjkgnsjdkfnsdkjg kjsdngjksdgnfksdjfnsdjkfnsdkjnfs gksdjfnsdjkfnsdjkf sdjkgsdjkfnsdjkfnsdjnkf kjsdbgjsdknfsdjkfn kjsdfjksdf jksdfjksdnf"
+        android:textAlignment="textStart"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="@color/grey"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/newsDate" />
 </androidx.constraintlayout.widget.ConstraintLayout>

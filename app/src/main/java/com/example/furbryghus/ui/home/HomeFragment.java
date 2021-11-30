@@ -26,6 +26,7 @@ import com.example.furbryghus.ProfilePage;
 import com.example.furbryghus.R;
 import com.example.furbryghus.databinding.FragmentHomeBinding;
 
+import com.example.furbryghus.ui.beers.BeerDetails;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -84,7 +85,9 @@ public class HomeFragment extends Fragment {
                         .execute(model.getImageLink());
                 holder.button_news.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
-
+                        Intent i = new Intent(v.getContext(), NewsIntent.class);
+                        i.putExtra("ID",model.getId());
+                        v.getContext().startActivity(i);
                     }
                 });
             }
