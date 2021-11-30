@@ -19,12 +19,10 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.furbryghus.MainActivity;
 import com.example.furbryghus.R;
 import com.example.furbryghus.databinding.FragmentBeersBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -36,7 +34,6 @@ import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Query;
-import com.google.firebase.firestore.model.Document;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
@@ -73,7 +70,7 @@ public class BeerFragment extends Fragment {
         });
 
         db = FirebaseFirestore.getInstance();
-        mFirestoreList = root.findViewById(R.id.firestore_list);
+        mFirestoreList = root.findViewById(R.id.event_list);
 
         //Query
         Query query = db.collection("beers").orderBy("name");

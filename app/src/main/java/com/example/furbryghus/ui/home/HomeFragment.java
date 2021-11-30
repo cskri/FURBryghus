@@ -15,18 +15,14 @@ import android.widget.TextView;
 
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.furbryghus.ProfilePage;
 import com.example.furbryghus.R;
 import com.example.furbryghus.databinding.FragmentHomeBinding;
 
-import com.example.furbryghus.ui.beers.BeerDetails;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -134,11 +130,11 @@ public class HomeFragment extends Fragment {
 
         public HomeViewHolder(@NonNull View itemView) {
             super(itemView);
-            title_news = itemView.findViewById(R.id.title_news);
-            description_news = itemView.findViewById(R.id.description_news);
-            news_image = itemView.findViewById(R.id.image_news);
-            button_news = itemView.findViewById(R.id.button_news);
-            date_news = itemView.findViewById(R.id.date_news);
+            title_news = itemView.findViewById(R.id.title_event);
+            description_news = itemView.findViewById(R.id.description_event);
+            news_image = itemView.findViewById(R.id.image_event);
+            button_news = itemView.findViewById(R.id.button_event);
+            date_news = itemView.findViewById(R.id.date_event);
 
         }
     }
