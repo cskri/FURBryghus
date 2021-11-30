@@ -21,6 +21,9 @@
         <activity
             android:name=".ui.home.NewsIntent"
             android:exported="false"/>
+        <activity android:name=".ui.beers.Capture"
+            android:screenOrientation="portrait"
+            android:stateNotNeeded="true"/>
         <activity
             android:name=".MainActivity"
             android:exported="true"
