@@ -2,7 +2,6 @@ package com.example.furbryghus.ui.events;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
@@ -17,19 +16,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.furbryghus.R;
 import com.example.furbryghus.databinding.FragmentEventsBinding;
-import com.example.furbryghus.ui.beers.BeerDetails;
-import com.example.furbryghus.ui.home.HomeFragment;
-import com.example.furbryghus.ui.home.HomeModel;
-import com.example.furbryghus.ui.home.NewsIntent;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -71,6 +64,8 @@ public class EventFragment extends Fragment {
 
         //Query
         Query query = db.collection("events").orderBy("date");
+        Log.d("QUERY OUTPUT", "ANYTHINNG?" + query.toString());
+
         //RecyclerOptions
         FirestoreRecyclerOptions<EventModel> options = new FirestoreRecyclerOptions.Builder<EventModel>().setQuery(query, EventModel.class).build();
 

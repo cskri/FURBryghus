@@ -56,6 +56,7 @@ public class BeerFragment extends Fragment {
                 new ViewModelProvider(this).get(BeerViewModel.class);
         binding = FragmentBeersBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
+
         scanButton = root.findViewById(R.id.scanButton);
         scanButton.setOnClickListener(new View.OnClickListener() {
             @Override
