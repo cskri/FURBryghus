@@ -1,4 +1,4 @@
-package com.example.furbryghus;
+package com.example.furbryghus.ui.Profile;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.furbryghus.MainActivityViewModel;
+import com.example.furbryghus.R;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class ProfilePage extends AppCompatActivity {

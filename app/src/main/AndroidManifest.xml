@@ -16,7 +16,7 @@
             android:name=".ui.beers.BeerDetails"
             android:exported="false" />
         <activity
-            android:name=".ProfilePage"
+            android:name=".ui.Profile.ProfilePage"
             android:exported="false"/>
         <activity
             android:name=".ui.home.NewsIntent"
