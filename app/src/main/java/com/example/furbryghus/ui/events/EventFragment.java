@@ -97,6 +97,7 @@ public class EventFragment extends Fragment {
                                     dialog.dismiss();
                                 }
                             });
+                            builder.show();
                         }
                         else{
                             AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());

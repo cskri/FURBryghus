@@ -2,8 +2,12 @@ package com.example.furbryghus.ui.Profile;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
@@ -22,6 +26,7 @@ import com.example.furbryghus.R;
 import com.example.furbryghus.ui.events.EventDocument;
 import com.example.furbryghus.ui.events.EventFragment;
 import com.example.furbryghus.ui.events.EventModel;
+import com.example.furbryghus.ui.events.ParticipantDocument;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -50,7 +55,7 @@ public class ProfilePage extends AppCompatActivity {
     FirestoreRecyclerAdapter adapter;
     private String TAG = "ProfilePage";
     List<String> events;
-
+    private TextView signed;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,20 +76,31 @@ public class ProfilePage extends AppCompatActivity {
                 finish();
             }
         });
-
+        signed = findViewById(R.id.eventsSignedUpText);
+        if(!FirebaseAuth.getInstance().getCurrentUser().isAnonymous()){
+            TextView hello;
+            hello = (TextView)findViewById(R.id.helloText);
+            hello.setText("Hello " + FirebaseAuth.getInstance().getCurrentUser().getDisplayName());
+        }
+        else {
+            signed.setText("");
+        }
         db = FirebaseFirestore.getInstance();
         eventsFirestoreList = findViewById(R.id.rvProfile);
         DocumentReference docRef = db.collection("eventUsers").document(FirebaseAuth.getInstance().getCurrentUser().getUid());
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
-            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+            public void onComplete(Task<DocumentSnapshot> task) {
+                Log.d("Events OUTPUT", "SUCCESS");
                 if (task.isSuccessful()) {
                     DocumentSnapshot document = task.getResult();
                     if (document.exists()) {
                         Log.d("Events OUTPUT", "DOCUMENT EXISTS");
                         events = document.toObject(EventDocument.class).eventId;
+                        buildRecyclerView(document);
                     } else {
                         Log.d("Events OUTPUT", "DOCUMENT NOT EXISTS");
+                        signed.setText("");
                     }
                 }
                 else {
@@ -93,8 +109,31 @@ public class ProfilePage extends AppCompatActivity {
             }
         });
 
-        //Query
-        Log.d("Events OUTPUT", "ANYTHINNG?" + events.get(1));
+
+    }
+    private void removeParticipantFromEvent(String eId, String uId){
+        DocumentReference docRef = db.collection("events").document(eId);
+        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+                        List<String> participants = document.toObject(ParticipantDocument.class).participants;
+                        participants.remove(uId);
+                        document.getReference().update("participants", participants);
+
+                    } else {
+                        Log.d(TAG, "get failed with ", task.getException());
+                    }
+                }
+                else {
+                    Log.d(TAG, "get failed with ", task.getException());
+                }
+            }
+        });
+    }
+    private void buildRecyclerView(DocumentSnapshot document){
         Query query = db.collection("events").whereIn("id",events).orderBy("date");
 
         //RecyclerOptions
@@ -119,11 +158,36 @@ public class ProfilePage extends AppCompatActivity {
                 holder.button_profile.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-
+                        AlertDialog.Builder builder = new AlertDialog.Builder(ProfilePage.this);
+                        builder.setTitle("Confirm Deletion");
+                        builder.setMessage("Confirm that you want to unsign from event");
+                        builder.setPositiveButton("UNSIGN", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                events.remove(model.getId());
+                                if(events.size() == 0){
+                                    document.getReference().delete();
+                                }
+                                document.getReference().update("eventId", events);
+                                removeParticipantFromEvent(model.getId(), FirebaseAuth.getInstance().getUid());
+                                finish();
+                            }
+                        });
+                        builder.setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        });
+                        builder.show();
                     }
                 });
             }
         };
+        eventsFirestoreList.setHasFixedSize(true);
+        eventsFirestoreList.setLayoutManager(new LinearLayoutManager(getBaseContext()));
+        eventsFirestoreList.setAdapter(adapter);
+        adapter.startListening();
     }
     private class ProfileViewHolder extends RecyclerView.ViewHolder {
 
@@ -174,13 +238,15 @@ public class ProfilePage extends AppCompatActivity {
     @Override
     public void onStart() {
         super.onStart();
-        adapter.startListening();
     }
 
     @Override
     public void onStop() {
         super.onStop();
-        adapter.stopListening();
+        if(!(adapter == null)){
+            adapter.stopListening();
+        }
+
     }
 
 }
