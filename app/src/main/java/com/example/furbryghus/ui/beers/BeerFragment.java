@@ -96,7 +96,7 @@ public class BeerFragment extends Fragment {
                     public void onClick(View v)
                     {
                         Intent i = new Intent(v.getContext(), BeerDetails.class);
-                        i.putExtra("ID",model.getName());
+                        i.putExtra("ID",model.getId());
                         v.getContext().startActivity(i);
                     }
                 });

@@ -3,6 +3,7 @@ package com.example.furbryghus.ui.beers;
 public class BeerModel {
     private String Name;
     private String Type;
+    private String id;
     private double Proof;
     private double Size;
     private String Description;
@@ -11,9 +12,18 @@ public class BeerModel {
 
     private BeerModel (){};
 
-    private BeerModel(String Name, String Type, double Proof, double Size, String Description, double CarbonEmission, String ImageLink){
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    private BeerModel(String Name, String Type, String id, double Proof, double Size, String Description, double CarbonEmission, String ImageLink){
         this.Name = Name;
         this.Type = Type;
+        this.id = id;
         this.Proof = Proof;
         this.Size = Size;
         this.Description = Description;

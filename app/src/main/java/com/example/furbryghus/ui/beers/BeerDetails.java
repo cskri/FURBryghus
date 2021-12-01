@@ -47,7 +47,7 @@ public class BeerDetails extends AppCompatActivity {
         id = i.getStringExtra("ID");
 
         db = FirebaseFirestore.getInstance();
-        DocumentReference docRef = db.collection("beers").document(id.toString());
+        DocumentReference docRef = db.collection("beers").document(id);
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
@@ -58,9 +58,12 @@ public class BeerDetails extends AppCompatActivity {
                         mName.setText(document.get("name").toString());
                         mDescription.setText(document.get("description").toString());
                         mType.setText(document.get("type").toString());
-                        mProof.setText(document.get("proof").toString());
-                        mEmission.setText(document.get("carbonEmission").toString());
-                        mSize.setText(document.get("size").toString());
+                        String proof = document.get("proof").toString() + "%";
+                        mProof.setText(proof);
+                        String emission = document.get("carbonEmission").toString() + "g";
+                        mEmission.setText(emission);
+                        String size = document.get("size").toString() + "cl";
+                        mSize.setText(size);
                         new BeerFragment.DownloadImageTask(mImage)
                                 .execute(document.get("imageLink").toString());
                     } else {
