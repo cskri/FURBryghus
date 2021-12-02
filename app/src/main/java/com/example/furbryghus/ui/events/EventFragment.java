@@ -81,7 +81,7 @@ public class EventFragment extends Fragment {
                 holder.title_event.setText(model.getName());
                 holder.description_event.setText(model.getDescription());
                 holder.date_event.setText("" + model.getDate());
-                holder.price_event.setText("" + model.getPrice());
+                holder.price_event.setText("" + model.getPrice() + "kr");
                 new EventFragment.DownloadImageTask(holder.image_event)
                         .execute(model.getImageLink());
                 holder.button_event.setOnClickListener(new View.OnClickListener() {
