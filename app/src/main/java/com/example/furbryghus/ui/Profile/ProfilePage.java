@@ -168,7 +168,9 @@ public class ProfilePage extends AppCompatActivity {
                                 if(events.size() == 0){
                                     document.getReference().delete();
                                 }
-                                document.getReference().update("eventId", events);
+                                else{
+                                    document.getReference().update("eventId", events);
+                                }
                                 removeParticipantFromEvent(model.getId(), FirebaseAuth.getInstance().getUid());
                                 finish();
                             }

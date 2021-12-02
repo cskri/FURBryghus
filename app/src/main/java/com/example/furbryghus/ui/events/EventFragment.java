@@ -64,7 +64,6 @@ public class EventFragment extends Fragment {
 
         //Query
         Query query = db.collection("events").orderBy("date");
-        Log.d("QUERY OUTPUT", "ANYTHINNG?" + query.toString());
 
         //RecyclerOptions
         FirestoreRecyclerOptions<EventModel> options = new FirestoreRecyclerOptions.Builder<EventModel>().setQuery(query, EventModel.class).build();

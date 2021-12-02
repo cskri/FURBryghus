@@ -22,4 +22,9 @@
         android:name="com.example.furbryghus.ui.events.EventFragment"
         android:label="@string/title_events"
         tools:layout="@layout/fragment_events" />
+    <fragment
+        android:id="@+id/navigation_sustainability"
+        android:name="com.example.furbryghus.ui.Sustainability.SustainabilityFragment"
+        android:label="@string/title_sustainability"
+        tools:layout="@layout/sustainability_fragment" />
 </navigation>

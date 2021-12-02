@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blue_200"
+    tools:context=".ui.Sustainability.SustainabilityFragment">
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView8">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:orientation="vertical"
+            android:textAlignment="center">
+
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="VI GÅR DEN BÆREDYGTIGE VEJ"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView17"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:text="Fur Bryghus tænker på miljøet i dag – og vi udvikler os mod stadig større bæredygtighed"
+                android:textAlignment="center"
+                android:textColor="@color/grey" />
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="sans-serif-light"
+                android:text="NATUREN FORPLIGTER"
+                android:textAlignment="center"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="VI TAGER ANSVAR OG HENSYN"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:text="På Fur Bryghus arbejder vi hele tiden for at gøre produktionen så bæredygtig som muligt.  Det handler både om at tage ansvar og reagere i forhold til jordens knappe ressourcer og brug-og-smid-væk kulturen – og om at vi også ser bæredygtighed som økonomisk ansvarlighed.  Vi vil gerne tage ansvar og hensyn. Vi bor midt i et af de skønneste naturområder i Danmark. Midt i skoven, med engen og fjorden som nærmeste nabo. Det forpligter, og vi vil gerne sikre at også de næste generationer får glæde af det."
+                android:textAlignment="center"
+                android:textColor="@color/grey" />
+
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="sans-serif-light"
+                android:text="RESULTATER KRÆVER HANDLING"
+                android:textAlignment="center"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="VI SÆTTER RESSOURCER BAG ORDENE"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView15"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:text="For at leve op til vores ansvar afsætter vi ressourcer. Flest menneskelige, men også økonomiske. Vi involverer os i udviklingen af bæredygtighed via samarbejder og netværk. Det giver god og brugbar inspiration til at udvikle vores egen forretning.  Vi går gerne i tæt samarbejde med de interessenter, der vil det samme som os. Og vi støtter offentlige arrangementer, hvor der er fokus på bæredygtighed."
+                android:textAlignment="center"
+                android:textColor="@color/grey" />
+
+            <TextView
+                android:id="@+id/textView18"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="sans-serif-light"
+                android:text="EKSEMPLER PÅ VORES INDSATSER"
+                android:textAlignment="center"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/textView19"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="HER GÅR VI DEN BÆREDYGTIGE VEJ"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView20"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:text="Vi er nået et stykke hen ad bæredygtighedsvejen, og da det er et klart fokusområde, kommer vi længere for hver dag, der går. Her er nogle konkrete eksempler:"
+                android:textAlignment="center"
+                android:textColor="@color/grey" />
+
+            <TextView
+                android:id="@+id/textView21"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:text="- Vi har vores eget nedsivningsanlæg til spildevandet fra bryggeri og restaurant."
+                android:textAlignment="center"
+                android:textColor="@color/grey" />
+
+            <TextView
+                android:id="@+id/textView22"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:text="- Vi giver vores restprodukt fra bryggeprocessen til en lokal landmand, der anvender det som supplement til fodring af fedekvæg."
+                android:textAlignment="center"
+                android:textColor="@color/grey" />
+
+            <TextView
+                android:id="@+id/textView23"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:text="- En del af restproduktet ”masken” anvendes i vores hjemmebagte brød, der serveres i restauranten."
+                android:textAlignment="center"
+                android:textColor="@color/grey" />
+
+            <TextView
+                android:id="@+id/textView24"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:text="- Vi har hele tiden 9 smågrise, som skal leve af grøntrester fra køkkenet - plus lidt mere selvfølgelig. Vi håber de får et liv med krølle på halen i vores skov."
+                android:textAlignment="center"
+                android:textColor="@color/grey" />
+
+            <TextView
+                android:id="@+id/textView25"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:text="- I 2014 gik vi helt over til miljøvenlige papirmaterialer: T3 Natural papir, der er fremstillet af genanvendte mælkekartoner og miljømærket med EU-Blomsten – eller tilsvarende Tetra Pak emballage."
+                android:textAlignment="center"
+                android:textColor="@color/grey" />
+
+            <TextView
+                android:id="@+id/textView26"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:text="- Alle vores tryksager bliver trykt på papir der er FSC og PEFC mærket, og det kommer fra træer som kun er dyrket med det for øje at bruge det til papirproduktion (det kommer ikke fra en regnskov i Sydamerika)"
+                android:textAlignment="center"
+                android:textColor="@color/grey" />
+
+            <TextView
+                android:id="@+id/textView27"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:text="Det trykkeri vi arbejder sammen med, foretager følgende:"
+                android:textAlignment="center"
+                android:textColor="@color/grey" />
+
+            <TextView
+                android:id="@+id/textView28"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:text="Trykfarverne er Bio farver – Vegetabilske trykfarver til offset. Affaldsfarve hentes af Mokano samt Foxdal Gruppen som opdelt i farverester/afvasket farve/tomme dåser. Pladefremstillingen er computer to plate (CTP) hvor der foregår en udvaskning af pladerne. Denne væske håndteres efter brug af Foxdal Gruppen. Trykpladerne (aluminium) sælges til Aage Espersen for omsmeltning."
+                android:textAlignment="center"
+                android:textColor="@color/grey" />
+
+            <TextView
+                android:id="@+id/textView29"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:text="Vores arbejde med bæredygtighed er en fortløbende proces, og selvom vi bestræber os på at holde siden her opdateret, så er vi måske allerede kommet et skridt længere."
+                android:textAlignment="center"
+                android:textColor="@color/grey" />
+
+            <TextView
+                android:id="@+id/textView30"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:text="Ansvarligt forbrug og produktion er et af 17 verdensmål, som indgår i udviklingsdagsordenen for bæredygtig udvikling frem mod 2030."
+                android:textAlignment="center"
+                android:textColor="@color/grey" />
+
+            <TextView
+                android:id="@+id/textView31"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:text="FN´s Verdensmål blev vedtaget den 25. september 2015 af stats- og  regeringsledere på FN topmødet i New York.  En meget ambitiøs dagsorden. Målene trådte i kraft den 1. Januar 2016 og skal frem til 2030 sætte os kurs mod en mere bæredygtig udvikling for både mennesker og  jorden, vi bor på."
+                android:textAlignment="center"
+                android:textColor="@color/grey" />
+
+            <TextView
+                android:id="@+id/textView32"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:text='Så kan man med rette spørge - Hvad/hvorfor tænker et lille Bryghus på så store ting!! Hvis ikke man gør noget - hvis ikke man forholder  sig til det, så sker der i hvert fald ikke noget. Vi har alle en forpligtigelse til at gøre en forskel - det har vi valgt at vi vil bidrage med. Vi rykker hele tiden små skridt i den rigtige retning. Det er et langt sejt træk som ikke bare løses på en dag - men "hvor der er vilje er der vej"'
+                android:textAlignment="center"
+                android:textColor="@color/grey" />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/un_img" />
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/un2_img" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Sustainability Profile"
+        android:textColor="@color/grey"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

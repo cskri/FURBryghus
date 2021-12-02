@@ -15,5 +15,9 @@
         android:id="@+id/navigation_events"
         android:icon="@drawable/ic_baseline_calendar_today_24"
         android:title="@string/title_events" />
+    <item
+        android:id="@+id/navigation_sustainability"
+        android:icon="@drawable/ic_baseline_eco_24"
+        android:title="@string/title_sustainability" />
 
 </menu>
