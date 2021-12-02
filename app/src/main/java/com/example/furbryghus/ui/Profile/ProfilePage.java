@@ -152,7 +152,7 @@ public class ProfilePage extends AppCompatActivity {
                 holder.title_profile.setText(model.getName());
                 holder.description_profile.setText(model.getDescription());
                 holder.date_profile.setText("" + model.getDate());
-                holder.price_profile.setText("" + model.getPrice());
+                holder.price_profile.setText("" + model.getPrice() + "kr");
                 new ProfilePage.DownloadImageTask(holder.image_profile)
                         .execute(model.getImageLink());
                 holder.button_profile.setOnClickListener(new View.OnClickListener() {
